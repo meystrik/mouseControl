@@ -8,6 +8,26 @@
 
 #import "mouseControl.h"
 
-@implementation mouseControl
+@implementation MADisplayDetails
 
+
+@synthesize pHigh;
+@synthesize pWide;
+@synthesize iHigh;
+@synthesize iWide;
+@synthesize isBuiltIn;
+@synthesize isMirrorSet;
+@synthesize isMain;
+@synthesize rotation;
+@synthesize modelNum;
+@synthesize logicalNum;
+
+
+
+
+@end
+
+@implementation MAMouseControl
+
+- (id) getDisplayList()
 @end
