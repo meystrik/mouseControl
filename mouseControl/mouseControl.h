@@ -48,4 +48,32 @@
 }
 @property int delay;
 
+- (int32_t) getDisplayList;
+- (int) mouseEvent: (CGPoint) p withEventType:(CGEventType) e;
+
+- (int) moveToCoordinates: (int) x andPointY: (int) y;
+
+- (int) leftDown;
+- (int) leftUp;
+- (int) leftClick;
+- (int) leftClick: (int) delay
+                    withDoubleClick: (bool) isDouble;
+- (int) leftClick: (int) delay
+                    withDoubleClick: (bool) isDouble
+                    onPointX: (int) x
+                    andPointY: (int) y;
+
+- (int) rightDown;
+- (int) rightUp;
+- (int) rightClick;
+- (int) rightClick: (int) delay
+                    withDoubleClick: (bool) isDouble;
+- (int) rightClick: (int) delay
+                    withDoubleClick: (bool) isDouble
+                    onPointX: (int) x
+                    andPointY: (int) y;
+
+
+
+
 @end

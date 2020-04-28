@@ -15,6 +15,7 @@
 		16EC3687245263D40011FB26 /* libmouseControl.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmouseControl.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		16EC368A245263D40011FB26 /* mouseControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mouseControl.h; sourceTree = "<group>"; };
 		16EC368C245263D40011FB26 /* mouseControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mouseControl.m; sourceTree = "<group>"; };
+		16EC37072458F4FD0011FB26 /* mouseControl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mouseControl-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +50,7 @@
 			children = (
 				16EC368A245263D40011FB26 /* mouseControl.h */,
 				16EC368C245263D40011FB26 /* mouseControl.m */,
+				16EC37072458F4FD0011FB26 /* mouseControl-Bridging-Header.h */,
 			);
 			path = mouseControl;
 			sourceTree = "<group>";
@@ -95,6 +97,7 @@
 				TargetAttributes = {
 					16EC3686245263D40011FB26 = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -240,24 +243,43 @@
 		16EC3691245263D40011FB26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				"DYLIB_INSTALL_NAME_BASE[arch=*]" = "/Users/chrmey1/Library/Developer/Xcode/DerivedData/mouseControl-gkdrraclqphgrdfrahbjnylybnus/Build/Products/Debug";
 				EXECUTABLE_PREFIX = lib;
+				"LD_DYLIB_INSTALL_NAME[arch=*]" = "/Users/chrmey1/Library/Developer/Xcode/DerivedData/mouseControl-gkdrraclqphgrdfrahbjnylybnus/Build/Products/Debug/libmouseControl.dylib";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "mouseControl/mouseControl-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		16EC3692245263D40011FB26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "mouseControl/mouseControl-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

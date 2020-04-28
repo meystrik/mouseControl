@@ -98,6 +98,12 @@
     return 0;
 }
 
+- (int) moveToCoordinates: (int) x andPointY: (int) y
+{
+    CGPoint p = CGPointMake( x, y);
+    return [self mouseEvent: p withEventType: kCGEventMouseMoved];
+}
+
 - (int) leftDown
 {
     CGEventRef event = CGEventCreate(NULL);
@@ -173,7 +179,7 @@
     return [self mouseEvent:p withEventType:kCGEventRightMouseDown];
 }
 
-- (int) RightUp
+- (int) rightUp
 {
     CGEventRef event = CGEventCreate(NULL);
     CGPoint p = CGEventGetLocation(event);
