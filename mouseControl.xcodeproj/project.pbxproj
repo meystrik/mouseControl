@@ -15,7 +15,7 @@
 		16EC3687245263D40011FB26 /* libmouseControl.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmouseControl.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		16EC368A245263D40011FB26 /* mouseControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mouseControl.h; sourceTree = "<group>"; };
 		16EC368C245263D40011FB26 /* mouseControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mouseControl.m; sourceTree = "<group>"; };
-		16EC37072458F4FD0011FB26 /* mouseControl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mouseControl-Bridging-Header.h"; sourceTree = "<group>"; };
+		16EC37112464BB330011FB26 /* mouseControl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mouseControl-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 			children = (
 				16EC368A245263D40011FB26 /* mouseControl.h */,
 				16EC368C245263D40011FB26 /* mouseControl.m */,
-				16EC37072458F4FD0011FB26 /* mouseControl-Bridging-Header.h */,
+				16EC37112464BB330011FB26 /* mouseControl-Bridging-Header.h */,
 			);
 			path = mouseControl;
 			sourceTree = "<group>";

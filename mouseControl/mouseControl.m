@@ -26,7 +26,19 @@
 
 @implementation MAMouseControl
 
-@synthesize delay;
+@synthesize defaultDelay;
+@synthesize displayDetails;
+@synthesize nDisplays;
+
+
+- (id) init
+{
+    displayDetails = [[NSMutableArray alloc] init];
+    defaultDelay = 4000;
+    
+    [self getDisplayList];
+    return [super init];
+}
 
 - (int32_t) getDisplayList
 
@@ -83,7 +95,9 @@
                                                     e,
                                                     p,
                                                     (CGMouseButton)e);
-    
+    if(mouseevent == NULL)  {
+        return 1;
+    }
     /*
      * Execute the Events defined above
      */
@@ -95,6 +109,80 @@
      */
     CFRelease(mouseevent);
 
+    return 0;
+}
+
+- (int) moveSmoothBetweenPoints: (int) x1
+                      andPointY: (int) y1
+                            x2: (int) x2
+                     andPointY2: (int) y2
+{
+    return [self moveSmoothBetweenPoints:x1 andPointY:y1 x2:x2 andPointY2:y2 withDelay: defaultDelay];
+}
+
+- (int) moveSmoothBetweenPoints: (int) x1
+                      andPointY: (int) y1
+                            x2: (int) x2
+                     andPointY2: (int) y2
+                      withDelay: (int) delay
+{
+    double m, b;
+    int x = x1;
+    int y = y1;
+    int retval;
+    
+    NSLog(@"(moveSmoothBetweenPoints) Moving between: %d, %d  and  %d, %d\n", x1, y1, x2, y2);
+    
+    /*
+     * Calculate the line equation to move the cursor
+     */
+    if( x1 != x2 )  {
+        /*
+          * Normal linear case with two known points, calculate the slope and y-intercept.  Vary
+          * X in the defined direction and calculate Y along the way.
+         */
+        m = (double)(y2 - y1) / (double)(x2 - x1);
+        b = (double)y1 - m * (double)x1;
+        NSLog(@"Linear Slope = %4.2f  Y-Intercept = %4.2f\n", m, b);
+        
+        while( x != x2 )  {
+
+            usleep(delay);
+            
+            if((retval = [self moveToCoordinates:x andPointY:y]))  {
+                return retval;
+            }
+            
+            y = m * (double)x + b;
+            x += x1 < x2 ? 1 : -1;
+            //NSLog(@"Moving to: %d, %d\n", x, y);
+        }
+        
+    }
+    else {
+        /*
+          * Special case where x1 == x2 and the slope is not defined, simply vary Y properly
+         */
+        NSLog(@"Special case: x1 == x2, %d\n", x1);
+        while( y != y2 )  {
+            
+            if((retval = [self moveToCoordinates:x andPointY:y]))  {
+                return retval;
+            }
+            
+            usleep(delay);
+            
+            y += y1 < y2 ? 1 : -1;
+        }
+    }
+
+    /*
+     * Move to the final x2,y2 location
+     */
+    if((retval = [self moveToCoordinates:x andPointY:y]))  {
+        return retval;
+    }
+    
     return 0;
 }
 
@@ -126,7 +214,7 @@
 
 - (int) leftClick
 {
-    return [self leftClick: self.delay];
+    return [self leftClick: self.defaultDelay];
 }
 
 - (int) leftClick: (int) delay
@@ -192,7 +280,7 @@
 
 - (int) rightClick
 {
-    return [self rightClick: self.delay];
+    return [self rightClick: self.defaultDelay];
 }
 
 - (int) rightClick: (int) delay

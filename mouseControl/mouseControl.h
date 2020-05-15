@@ -44,12 +44,25 @@
 {
     uint32_t            nDisplays;
     NSMutableArray      *displayDetails;
-    int                 delay;
+    int                 defaultDelay;
 }
-@property int delay;
+@property int defaultDelay;
+@property NSMutableArray *displayDetails;
+@property uint32_t nDisplays;
 
 - (int32_t) getDisplayList;
 - (int) mouseEvent: (CGPoint) p withEventType:(CGEventType) e;
+
+- (int) moveSmoothBetweenPoints: (int) x1
+                      andPointY: (int) y1
+                             x2: (int) x2
+                     andPointY2: (int) y2;
+
+- (int) moveSmoothBetweenPoints: (int) x1
+                      andPointY: (int) y1
+                             x2: (int) x2
+                     andPointY2: (int) y2
+                      withDelay: (int)delay;
 
 - (int) moveToCoordinates: (int) x andPointY: (int) y;
 
