@@ -40,6 +40,9 @@
     return [super init];
 }
 
+/*
+ * Get details about the displays
+ */
 - (int32_t) getDisplayList
 
 {
