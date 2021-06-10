@@ -2,7 +2,7 @@
 //  mouseControl.h
 //  mouseControl
 //
-//  Created by Meystrik, Chris on 4/23/20.
+//  Created by Meystrik, C. Chris on 4/23/20.
 //  Copyright © 2020 C. Chris Meystrik. All rights reserved.
 //
 
